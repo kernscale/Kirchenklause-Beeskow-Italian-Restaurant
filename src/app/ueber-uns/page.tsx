@@ -7,27 +7,32 @@ import { FadeIn, WordReveal, TextReveal, ImageReveal, StaggerContainer, StaggerI
 
 const values = [
   {
-    title: "Authentizität",
-    desc: "Klassische italienische Rezepte, klarer Geschmack und ehrliche Zutaten.",
+    title: "Regionalität",
+    desc: "Die Küche orientiert sich an regionalen Produkten und saisonalen Speisen.",
   },
   {
     title: "Gastfreundschaft",
-    desc: "Wir möchten, dass sich jede Reservierung und jeder spontane Besuch unkompliziert anfühlt.",
+    desc: "Aufmerksamer Service und ein familiärer Umgang prägen den Besuch.",
   },
   {
     title: "Beständigkeit",
-    desc: "Verlässliche Qualität, faire Preise und tägliche Öffnungszeiten von 11:00 bis 23:00.",
+    desc: "Ein traditionsreicher Standort mit kontinuierlicher Weiterentwicklung des Hauses.",
   },
 ];
 
 const timeline = [
-  { year: "2022", event: "Kirchenklause startet mit italienischem Fokus im historischen Ortskern." },
-  { year: "2023", event: "Ausbau der Speisekarte mit Pizza, Pasta, Antipasti und Dolci." },
-  { year: "2024", event: "Stetig wachsender Stamm aus Gästen aus Beeskow und Umgebung." },
-  { year: "2026", event: "MVP-Website für bessere Sichtbarkeit und schnelle Kontaktaufnahme." },
+  { year: "1986", event: "In den Räumen startet eine Gastronomie, damals als Weinstuben am Wall." },
+  { year: "1993", event: "Familie Wichmann übernimmt den Betrieb und richtet ihn regional aus." },
+  { year: "2015", event: "Henry Wichmann übernimmt die Leitung der Mudder-Schulten-Stuben." },
+  { year: "Heute", event: "Saisonale Spezialitäten und Gastlichkeit direkt an der Stadtmauer." },
 ];
 
-const topFacts = ["Seit 2022 in Beeskow", "Täglich 11:00-23:00", "Italienische Küche", "Kirchgasse 11"];
+const topFacts = [
+  "Familiengeführt seit 1993",
+  "Leitung seit 2015: Henry Wichmann",
+  "Sommergarten mit 60 Sitzplätzen",
+  "Vierte Ringstr. 425, Neubrandenburg",
+];
 
 export default function UeberUnsPage() {
   return (
@@ -46,7 +51,7 @@ export default function UeberUnsPage() {
             />
             <FadeIn delay={0.6}>
               <p className="mt-6 max-w-lg text-lg leading-relaxed text-foreground/55">
-                Die Kirchenklause verbindet italienische Klassiker mit einer ruhigen, gastfreundlichen Atmosphäre im historischen Zentrum von Beeskow.
+                Die Mudder-Schulten-Stuben verbinden regionale Küche und familiäre Gastlichkeit an einem historischen Standort in Neubrandenburg.
               </p>
             </FadeIn>
 
@@ -82,14 +87,14 @@ export default function UeberUnsPage() {
           <FadeIn delay={0.3}>
             <div className="relative h-full min-h-[420px] md:min-h-[560px]">
               <ImageReveal
-                src="/images/about-kirchenklause.jpg"
-                alt="Außenbereich der Kirchenklause in Beeskow"
+                src="/images/mudder/IMG_1918.jpg"
+                alt="Innenbereich der Mudder-Schulten-Stuben"
                 className="h-full rounded-2xl border border-border/70"
                 delay={0.35}
               />
               <div className="absolute bottom-5 left-5 rounded-xl border border-border/70 bg-panel-strong/90 px-4 py-3 backdrop-blur-md">
-                <p className="text-xs uppercase tracking-[0.18em] text-accent">Kirchenklause</p>
-                <p className="mt-1 text-sm text-foreground/80">Italienische Küche und entspannte Terrasse</p>
+                <p className="text-xs uppercase tracking-[0.18em] text-accent">Mudder-Schulten-Stuben</p>
+                <p className="mt-1 text-sm text-foreground/80">Mecklenburger Spezialitäten und familiäre Atmosphäre</p>
               </div>
             </div>
           </FadeIn>
@@ -101,11 +106,11 @@ export default function UeberUnsPage() {
         <div className="mx-auto max-w-5xl px-5 text-center md:px-8">
           <FadeIn>
             <blockquote className="font-display text-3xl leading-relaxed text-foreground md:text-5xl md:leading-relaxed">
-              &ldquo;Gutes Essen braucht gute Zutaten, Zeit und ein Team, das Gastgeber sein will.&rdquo;
+              &ldquo;Regionale, frische Küche mit gutem Service und aufmerksamer Betreuung unserer Gäste.&rdquo;
             </blockquote>
           </FadeIn>
           <FadeIn delay={0.3}>
-            <p className="mt-8 text-sm uppercase tracking-[0.2em] text-accent">Das Team der Kirchenklause</p>
+            <p className="mt-8 text-sm uppercase tracking-[0.2em] text-accent">Hausprofil der Mudder-Schulten-Stuben</p>
           </FadeIn>
         </div>
       </section>
@@ -144,7 +149,7 @@ export default function UeberUnsPage() {
 
       <section className="mx-auto max-w-7xl px-5 py-12 md:px-8">
         <div className="relative h-[50vh] overflow-hidden rounded-3xl">
-          <ParallaxImage src="/images/interior-kirchenklause.jpg" alt="Innenbereich der Kirchenklause" className="h-full w-full" speed={0.2} />
+          <ParallaxImage src="/images/mudder/IMG_1848.jpg" alt="Innenbereich der Mudder-Schulten-Stuben" className="h-full w-full" speed={0.2} />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
         </div>
       </section>

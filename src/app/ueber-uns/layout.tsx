@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 export const metadata: Metadata = {
   title: "Über Uns",
   description:
-    "Erfahre mehr über die Kirchenklause Beeskow Italian Restaurant, unsere Küche, Werte und den Standort in der Kirchgasse 11.",
+    "Mehr über die Mudder-Schulten-Stuben: Standort an der Stadtmauer, familiengeführt seit 1993 und regionale Küche in Neubrandenburg.",
   alternates: {
     canonical: "/ueber-uns",
   },

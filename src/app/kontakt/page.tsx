@@ -50,7 +50,7 @@ export default function KontaktPage() {
         />
         <FadeIn delay={0.5}>
           <p className="mt-6 max-w-lg text-lg leading-relaxed text-foreground/50">
-            Fragen, Reservierungswunsch oder Feedback? Schreib uns direkt. Wir sind täglich in Beeskow erreichbar.
+            Reservierungen bitte telefonisch unter 0395 5823766. Für weitere Anfragen erreichst du uns auch per E-Mail.
           </p>
         </FadeIn>
       </section>
@@ -130,7 +130,7 @@ export default function KontaktPage() {
                       <Send className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                     </button>
                   </MagneticButton>
-                  <p className="text-sm text-foreground/50">Wir antworten in der Regel innerhalb von 24 Stunden.</p>
+                  <p className="text-sm text-foreground/50">Alternativ direkt: 0395 5823766 oder kls.wichmann@t-online.de</p>
                 </form>
               )}
             </div>
@@ -153,25 +153,23 @@ export default function KontaktPage() {
                     </>
                   );
 
-                  return (
-                    info.href ? (
-                      <a
-                        key={i}
-                        href={info.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group flex items-start gap-4 rounded-xl border border-border/70 bg-panel p-5 transition-all hover:border-accent/20 hover:bg-accent/5"
-                      >
-                        {cardContent}
-                      </a>
-                    ) : (
-                      <div
-                        key={i}
-                        className="group flex items-start gap-4 rounded-xl border border-border/70 bg-panel p-5 transition-all hover:border-accent/20 hover:bg-accent/5"
-                      >
-                        {cardContent}
-                      </div>
-                    )
+                  return info.href ? (
+                    <a
+                      key={i}
+                      href={info.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-start gap-4 rounded-xl border border-border/70 bg-panel p-5 transition-all hover:border-accent/20 hover:bg-accent/5"
+                    >
+                      {cardContent}
+                    </a>
+                  ) : (
+                    <div
+                      key={i}
+                      className="group flex items-start gap-4 rounded-xl border border-border/70 bg-panel p-5 transition-all hover:border-accent/20 hover:bg-accent/5"
+                    >
+                      {cardContent}
+                    </div>
                   );
                 })}
               </div>
@@ -180,14 +178,14 @@ export default function KontaktPage() {
             <FadeIn delay={0.3}>
               <div className="aspect-[4/3] overflow-hidden rounded-2xl border border-border/70">
                 <iframe
-                  src="https://www.google.com/maps?q=Kirchgasse+11,+15848+Beeskow&output=embed"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2370.1163763169025!2d13.263051315846342!3d53.555689980023416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47abc3721e9a2adf%3A0x69484adc39cc84ac!2sMudder+Schulten+Stuben!5e0!3m2!1sde!2sde!4v1486479427202"
                   width="100%"
                   height="100%"
                   style={{ border: 0, filter: "var(--map-filter)" }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Kirchenklause Beeskow Standort"
+                  title="Mudder-Schulten-Stuben Standort"
                 />
               </div>
             </FadeIn>

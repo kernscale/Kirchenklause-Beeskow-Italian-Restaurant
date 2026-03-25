@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 export const metadata: Metadata = {
   title: "Speisekarte",
   description:
-    "Speisekarte der Kirchenklause Beeskow Italian Restaurant: Antipasti, Pasta, Pizza, Dolci und Getränke.",
+    "Speisekarte der Mudder-Schulten-Stuben: Suppen, Fischgerichte, Fleischgerichte, Wildgerichte und Chefempfehlungen.",
   alternates: {
     canonical: "/speisekarte",
   },

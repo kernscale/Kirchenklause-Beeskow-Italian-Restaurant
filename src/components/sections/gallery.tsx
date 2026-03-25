@@ -5,12 +5,12 @@ import { motion } from "framer-motion";
 import { FadeIn, StaggerContainer, StaggerItem, WordReveal } from "@/components/ui/animations";
 
 const images = [
-  { src: "/images/gallery-1.jpg", alt: "Restaurantbereich", span: "col-span-2 row-span-2" },
-  { src: "/images/gallery-2.jpg", alt: "Pasta und Tellerpräsentation", span: "col-span-1 row-span-1" },
-  { src: "/images/gallery-3.jpg", alt: "Pizza aus dem Ofen", span: "col-span-1 row-span-1" },
-  { src: "/images/gallery-4.jpg", alt: "Innenbereich", span: "col-span-1 row-span-2" },
-  { src: "/images/gallery-5.jpg", alt: "Dessert und Kaffee", span: "col-span-1 row-span-1" },
-  { src: "/images/gallery-6.jpg", alt: "Abendstimmung", span: "col-span-1 row-span-1" },
+  { src: "/images/mudder/IMG_1726.jpg", alt: "Restaurantbereich", span: "col-span-2 row-span-2" },
+  { src: "/images/mudder/IMG_1738.jpg", alt: "Speisen im Gastraum", span: "col-span-1 row-span-1" },
+  { src: "/images/mudder/IMG_1834.jpg", alt: "Tisch und Atmosphäre", span: "col-span-1 row-span-1" },
+  { src: "/images/mudder/IMG_1848.jpg", alt: "Innenansicht", span: "col-span-1 row-span-2" },
+  { src: "/images/mudder/IMG_1917.jpg", alt: "Spezialität aus der Küche", span: "col-span-1 row-span-1" },
+  { src: "/images/mudder/IMG_1953.jpg", alt: "Eindruck aus der Galerie", span: "col-span-1 row-span-1" },
 ];
 
 export function GallerySection() {
@@ -22,7 +22,7 @@ export function GallerySection() {
             <span className="eyebrow text-accent">Galerie</span>
           </FadeIn>
           <WordReveal
-            text="Eindrücke aus der Kirchenklause"
+            text="Eindrücke aus den Mudder-Schulten-Stuben"
             as="h2"
             className="mt-4 font-display text-4xl tracking-tight text-foreground md:text-6xl"
             delay={0.1}

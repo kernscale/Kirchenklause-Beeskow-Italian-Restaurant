@@ -8,34 +8,34 @@ import { FadeIn, StaggerContainer, StaggerItem, WordReveal } from "@/components/
 
 const featuredItems = [
   {
-    name: "Pizza Margherita",
-    desc: "Tomate · Mozzarella · Basilikum",
-    price: "€12,50",
-    image: "/images/menu-pizza.jpg",
+    name: "Gemischte Fischplatte",
+    desc: "Zander · Seelachs · Fisch-Rahm-Sauce",
+    price: "Preis auf Anfrage",
+    image: "/images/mudder/IMG_1876.jpg",
   },
   {
-    name: "Spaghetti Carbonara",
-    desc: "Pancetta · Pecorino · Ei",
-    price: "€14,90",
-    image: "/images/menu-carbonara.jpg",
+    name: "Rumpsteak 200 g",
+    desc: "Kräuterbutter · frische Champignons",
+    price: "Preis auf Anfrage",
+    image: "/images/mudder/IMG_1897.jpg",
   },
   {
-    name: "Bruschetta Classica",
-    desc: "Tomaten · Basilikum · Olivenöl",
-    price: "€7,50",
-    image: "/images/menu-bruschetta.jpg",
+    name: "Kloppschinken",
+    desc: "Traditionell mecklenburgisch",
+    price: "Preis auf Anfrage",
+    image: "/images/mudder/IMG_1946.jpg",
   },
   {
-    name: "Tiramisu",
-    desc: "Hausrezept",
-    price: "€6,90",
-    image: "/images/menu-tiramisu.jpg",
+    name: "Wildschweinbraten",
+    desc: "Böhmische Sauce · Apfelrotkohl",
+    price: "Preis auf Anfrage",
+    image: "/images/mudder/IMG_1952.jpg",
   },
 ];
 
 export function MenuPreviewSection() {
   return (
-    <section className="relative py-32">
+    <section className="relative py-32" id="menu">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <div className="mb-16 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
@@ -43,13 +43,13 @@ export function MenuPreviewSection() {
               <span className="eyebrow editorial-line text-accent">Speisekarte</span>
             </FadeIn>
             <WordReveal
-              text="Beliebte Klassiker"
+              text="Ausgewählte Empfehlungen"
               as="h2"
               className="mt-4 font-display text-4xl tracking-tight text-foreground md:text-6xl"
               delay={0.1}
             />
             <p className="mt-4 max-w-lg text-sm leading-relaxed text-foreground/60 md:text-base">
-              Frisch zubereitet und mit italienischem Charakter serviert.
+              Ein kleiner Ausblick auf Suppen, Fisch-, Fleisch- und Wildgerichte aus unserer Küche.
             </p>
           </div>
           <FadeIn delay={0.3}>
@@ -86,7 +86,7 @@ export function MenuPreviewSection() {
                       <h3 className="font-display text-lg text-foreground">{item.name}</h3>
                       <p className="mt-1 text-sm text-foreground/40">{item.desc}</p>
                     </div>
-                    <span className="whitespace-nowrap font-display text-lg text-accent">{item.price}</span>
+                    <span className="whitespace-nowrap font-display text-sm text-accent">{item.price}</span>
                   </div>
                 </div>
 

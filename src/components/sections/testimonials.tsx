@@ -1,30 +1,25 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Quote, Star } from "lucide-react";
 
 import { FadeIn, StaggerContainer, StaggerItem, WordReveal } from "@/components/ui/animations";
 
-const reviews = [
+const insights = [
   {
-    name: "Giulia R.",
-    text: "Sehr gute Pizza, knuspriger Boden und freundlicher Service. Wir kommen wieder.",
-    rating: 5,
+    title: "Historischer Standort",
+    text: "Die Räume waren seit 1986 gastronomisch genutzt und liegen direkt an der erhaltenen Stadtmauer.",
   },
   {
-    name: "Stefan K.",
-    text: "Carbonara und Bruschetta waren top. Gemütliche Stimmung am Abend.",
-    rating: 5,
+    title: "Familiengeführt",
+    text: "Familie Wichmann betreibt die Gastronomie seit 1993, seit 2015 unter der Leitung von Henry Wichmann.",
   },
   {
-    name: "Maria L.",
-    text: "Tolle Adresse in Beeskow. Faire Preise und große Portionen.",
-    rating: 5,
+    title: "Regionale Ausrichtung",
+    text: "Die Küche setzt auf saisonale und regionale Spezialitäten mit mecklenburgischem Charakter.",
   },
   {
-    name: "Daniel P.",
-    text: "Wir waren als Familie da und alle Gerichte kamen gleichzeitig und heiß an den Tisch.",
-    rating: 5,
+    title: "Gastlichkeit",
+    text: "Aufmerksamer Service und ein Sommergarten mit rund 60 Sitzplätzen prägen den Aufenthalt.",
   },
 ];
 
@@ -38,10 +33,10 @@ export function TestimonialsSection() {
       <div className="relative z-10 mx-auto max-w-7xl px-5 md:px-8">
         <div className="mb-16 text-center">
           <FadeIn>
-            <span className="eyebrow text-accent">Bewertungen</span>
+            <span className="eyebrow text-accent">Hausprofil</span>
           </FadeIn>
           <WordReveal
-            text="Stimmen aus Beeskow"
+            text="Mudder-Schulten-Stuben auf einen Blick"
             as="h2"
             className="mx-auto mt-4 max-w-4xl font-display text-4xl leading-[1.05] tracking-tight text-foreground md:text-6xl"
             delay={0.1}
@@ -49,8 +44,8 @@ export function TestimonialsSection() {
         </div>
 
         <StaggerContainer className="grid gap-6 md:grid-cols-2" stagger={0.1}>
-          {reviews.map((review, i) => (
-            <StaggerItem key={i}>
+          {insights.map((item) => (
+            <StaggerItem key={item.title}>
               <motion.div
                 className="testimonial-card group relative h-full rounded-2xl border p-6 backdrop-blur-sm"
                 style={{
@@ -60,23 +55,8 @@ export function TestimonialsSection() {
                 whileHover={{ y: -6 }}
                 transition={{ duration: 0.3 }}
               >
-                <Quote className="pointer-events-none absolute right-5 top-5 h-8 w-8 text-accent/25" />
-                <div className="mb-4 flex gap-1">
-                  {Array.from({ length: review.rating }).map((_, si) => (
-                    <Star key={si} className="h-3.5 w-3.5 fill-accent text-accent" />
-                  ))}
-                </div>
-
-                <p className="mb-6 text-sm leading-relaxed [color:var(--testimonial-text)]">&ldquo;{review.text}&rdquo;</p>
-
-                <div className="mt-auto">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-accent/20">
-                      <span className="text-xs font-medium text-accent">{review.name.charAt(0)}</span>
-                    </div>
-                    <span className="text-sm font-medium [color:var(--testimonial-meta)]">{review.name}</span>
-                  </div>
-                </div>
+                <h3 className="font-display text-2xl text-foreground">{item.title}</h3>
+                <p className="mt-4 text-sm leading-relaxed [color:var(--testimonial-text)]">{item.text}</p>
               </motion.div>
             </StaggerItem>
           ))}

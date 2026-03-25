@@ -42,7 +42,6 @@ export function Navbar() {
       };
     }
 
-    // Fallback for cases where Lenis is intentionally disabled (e.g. reduced-motion).
     if (isOpen) {
       document.body.style.overflow = "hidden";
     } else {
@@ -106,7 +105,7 @@ export function Navbar() {
                 href="/kontakt"
                 className="hidden rounded-full border border-accent/40 bg-accent px-5 py-2.5 text-sm font-medium text-black transition-all hover:bg-accent-strong hover:shadow-[0_0_30px_rgba(210,169,109,0.3)] md:inline-flex"
               >
-                Tisch anfragen
+                Reservierung
               </Link>
             </MagneticButton>
 

@@ -11,11 +11,11 @@ export function LocationCTASection() {
   const reduceMotion = Boolean(useReducedMotion());
 
   return (
-    <section className="relative py-32">
+    <section className="relative py-32" id="location">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <div className="glass-sheen relative overflow-hidden rounded-3xl border border-border/70">
           <div className="absolute inset-0 z-0">
-            <ParallaxImage src="/images/interior-kirchenklause.jpg" alt="Innenbereich der Kirchenklause" className="h-full w-full" speed={0.1} />
+            <ParallaxImage src="/images/mudder/IMG_1848.jpg" alt="Innenbereich der Mudder-Schulten-Stuben" className="h-full w-full" speed={0.1} />
             <div className="absolute inset-0 bg-[var(--overlay-dark)] backdrop-blur-[2px]" />
             <motion.div
               className="pointer-events-none absolute -left-20 top-1/3 h-56 w-56 rounded-full bg-accent/15 blur-3xl"
@@ -31,13 +31,13 @@ export function LocationCTASection() {
               </FadeIn>
 
               <WordReveal
-                text="Wir freuen uns auf dich."
+                text="Wir freuen uns auf deinen Besuch."
                 as="h2"
                 className="mt-6 font-display text-4xl tracking-tight text-on-image md:text-6xl"
                 delay={0.1}
               />
               <p className="mt-4 max-w-md text-balance text-on-image/80">
-                Italienische Küche in der Kirchgasse 11 in 15848 Beeskow.
+                Regionales Restaurant an der Stadtmauer in Neubrandenburg.
               </p>
 
               <FadeIn delay={0.3}>
@@ -69,7 +69,7 @@ export function LocationCTASection() {
                     href="/kontakt"
                     className="group inline-flex items-center gap-3 rounded-full bg-accent px-7 py-4 font-medium text-black transition-all hover:bg-accent-strong hover:shadow-[0_0_40px_rgba(210,169,109,0.3)]"
                   >
-                    Route planen
+                    Anfahrt & Kontakt
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </MagneticButton>

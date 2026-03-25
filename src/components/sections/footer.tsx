@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { UtensilsCrossed, Instagram, MapPin, Mail, Moon, Phone, Sun } from "lucide-react";
+import { UtensilsCrossed, ExternalLink, MapPin, Mail, Moon, Phone, Sun } from "lucide-react";
 import Link from "next/link";
 import { useSyncExternalStore } from "react";
 
@@ -35,11 +35,11 @@ export function Footer() {
       }
 
       const handleThemeChange = () => onStoreChange();
-      window.addEventListener("kirchenklause-theme-change", handleThemeChange);
+      window.addEventListener("mudder-theme-change", handleThemeChange);
       window.addEventListener("storage", handleThemeChange);
 
       return () => {
-        window.removeEventListener("kirchenklause-theme-change", handleThemeChange);
+        window.removeEventListener("mudder-theme-change", handleThemeChange);
         window.removeEventListener("storage", handleThemeChange);
       };
     },
@@ -55,8 +55,8 @@ export function Footer() {
     const root = document.documentElement;
     root.setAttribute("data-theme", nextTheme);
     root.style.colorScheme = nextTheme;
-    localStorage.setItem("kirchenklause-theme", nextTheme);
-    window.dispatchEvent(new Event("kirchenklause-theme-change"));
+    localStorage.setItem("mudder-theme", nextTheme);
+    window.dispatchEvent(new Event("mudder-theme-change"));
   };
 
   const isDark = theme === "dark";
@@ -77,7 +77,7 @@ export function Footer() {
               <span className="font-display text-xl tracking-tight text-foreground">{siteConfig.name}</span>
             </Link>
             <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
-              Italienische Küche in der Kirchgasse 11 in Beeskow. Täglich von 11:00 bis 23:00 geöffnet.
+              Familiengeführtes Restaurant mit regionalen Spezialitäten in Neubrandenburg.
             </p>
 
             <div className="mt-6 space-y-2">
@@ -115,7 +115,7 @@ export function Footer() {
         <div className="flex flex-col items-center justify-between gap-4 border-t border-border/70 py-6 md:flex-row">
           <div className="flex flex-col items-center gap-1 md:items-start">
             <p className="text-xs text-muted-foreground/80">
-              &copy; {new Date().getFullYear()} Kirchenklause Beeskow Italian Restaurant. Alle Rechte vorbehalten.
+              &copy; {new Date().getFullYear()} {siteConfig.name}. Alle Rechte vorbehalten.
             </p>
             <p className="text-xs text-muted-foreground/70">Made by Kernscale</p>
           </div>
@@ -132,14 +132,15 @@ export function Footer() {
               <span>{isDark ? "Light Mode" : "Dark Mode"}</span>
             </motion.button>
             <motion.a
-              href="https://instagram.com"
+              href="https://www.mudder-schulten-stuben.de/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex h-8 w-8 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-accent/30 hover:text-accent"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
+              aria-label="Original-Website öffnen"
             >
-              <Instagram className="h-3.5 w-3.5" />
+              <ExternalLink className="h-3.5 w-3.5" />
             </motion.a>
           </div>
         </div>

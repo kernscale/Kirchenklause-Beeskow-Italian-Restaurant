@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Archivo, Fraunces, IBM_Plex_Mono } from "next/font/google";
 import Script from "next/script";
 
+import { InitialLoadGate } from "@/components/layout/initial-load-gate";
 import { LenisProvider } from "@/components/layout/lenis-provider";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/sections/footer";
@@ -16,17 +17,17 @@ const plexMono = IBM_Plex_Mono({ variable: "--font-plex-mono", subsets: ["latin"
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Kirchenklause Beeskow Italian Restaurant | Italienisches Restaurant in Beeskow",
+    default: "Mudder-Schulten-Stuben | Restaurant in Neubrandenburg",
     template: `%s | ${siteConfig.name}`,
   },
   description:
-    "Kirchenklause Beeskow Italian Restaurant in der Kirchgasse 11. Italienische Küche, Steinofenpizza, Pasta und Desserts. Täglich geöffnet von 11:00 bis 23:00.",
+    "Mudder-Schulten-Stuben in Neubrandenburg: regionale und saisonale Spezialitäten, familiengeführt seit 1993. Warme Küche täglich von 11:30 bis 21:30 Uhr.",
   keywords: [
-    "Kirchenklause Beeskow",
-    "Italienisches Restaurant Beeskow",
-    "Pizza Beeskow",
-    "Pasta Beeskow",
-    "Restaurant Kirchgasse 11",
+    "Mudder-Schulten-Stuben",
+    "Restaurant Neubrandenburg",
+    "Vierte Ringstr. 425",
+    "Mecklenburger Spezialitäten",
+    "Regionale Küche Neubrandenburg",
   ],
   alternates: {
     canonical: "/",
@@ -36,22 +37,22 @@ export const metadata: Metadata = {
     locale: "de_DE",
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: "Kirchenklause Beeskow Italian Restaurant",
-    description: "Italienisches Restaurant in Beeskow mit täglicher Öffnung von 11:00 bis 23:00.",
+    title: "Mudder-Schulten-Stuben",
+    description: "Regionale Spezialitäten in Neubrandenburg. Warme Küche täglich von 11:30 bis 21:30 Uhr.",
     images: [
       {
-        url: "/images/hero-kirchenklause-hq.jpg",
+        url: "/images/mudder/IMG_1938.jpg",
         width: 1200,
-        height: 900,
-        alt: "Kirchenklause Beeskow Italian Restaurant",
+        height: 800,
+        alt: "Mudder-Schulten-Stuben",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kirchenklause Beeskow Italian Restaurant",
-    description: "Italienisches Restaurant in Beeskow: Pizza, Pasta, Antipasti und Desserts.",
-    images: ["/images/hero-kirchenklause-hq.jpg"],
+    title: "Mudder-Schulten-Stuben",
+    description: "Familiengeführtes Restaurant in Neubrandenburg mit regionaler Küche.",
+    images: ["/images/mudder/IMG_1938.jpg"],
   },
   robots: {
     index: true,
@@ -66,7 +67,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Script id="theme-init" strategy="beforeInteractive">
           {`(() => {
   try {
-    const key = "kirchenklause-theme";
+    const key = "mudder-theme";
     const root = document.documentElement;
     const stored = localStorage.getItem(key);
     const theme = stored === "light" || stored === "dark" ? stored : "dark";
@@ -78,10 +79,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className={`${archivo.variable} ${fraunces.variable} ${plexMono.variable} bg-background text-foreground antialiased`}>
         <LenisProvider>
-          <ScrollProgress />
-          <Navbar />
-          {children}
-          <Footer />
+          <InitialLoadGate>
+            <ScrollProgress />
+            <Navbar />
+            {children}
+            <Footer />
+          </InitialLoadGate>
         </LenisProvider>
       </body>
     </html>

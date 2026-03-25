@@ -9,9 +9,9 @@ import { LocationCTASection } from "@/components/sections/location-cta";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "Italienisches Restaurant in Beeskow mit Pizza, Pasta und Antipasti",
+  title: "Restaurant in Neubrandenburg mit regionaler Küche",
   description:
-    "Kirchenklause Beeskow Italian Restaurant: italienische Klassiker in der Kirchgasse 11, täglich 11:00-23:00. Speisekarte, Öffnungszeiten und Standort.",
+    "Mudder-Schulten-Stuben in der Vierten Ringstr. 425, 17033 Neubrandenburg. Familiengeführt, regionale Spezialitäten und warme Küche täglich von 11:30 bis 21:30 Uhr.",
   alternates: {
     canonical: "/",
   },
@@ -23,22 +23,22 @@ export default function Home() {
     "@type": "Restaurant",
     name: siteConfig.name,
     url: siteConfig.url,
-    image: `${siteConfig.url}/images/hero-kirchenklause-hq.jpg`,
+    image: `${siteConfig.url}/images/mudder/IMG_1938.jpg`,
     telephone: siteConfig.contact.phone,
     email: siteConfig.contact.email,
     priceRange: siteConfig.priceRange,
-    servesCuisine: ["Italian"],
+    servesCuisine: ["Deutsch", "Mecklenburgisch", "Regional"],
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Kirchgasse 11",
-      addressLocality: "Beeskow",
-      postalCode: "15848",
+      streetAddress: "Vierte Ringstr. 425",
+      addressLocality: "Neubrandenburg",
+      postalCode: "17033",
       addressCountry: "DE",
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: 52.171657,
-      longitude: 14.2477425,
+      latitude: 53.55569,
+      longitude: 13.26524,
     },
     openingHoursSpecification: [
       {
@@ -52,12 +52,12 @@ export default function Home() {
           "Saturday",
           "Sunday",
         ],
-        opens: "11:00",
-        closes: "23:00",
+        opens: "11:30",
+        closes: "21:30",
       },
     ],
     menu: `${siteConfig.url}/speisekarte`,
-    sameAs: [siteConfig.contact.mapsUrl],
+    sameAs: [siteConfig.contact.mapsUrl, "https://www.mudder-schulten-stuben.de/"],
   };
 
   return (

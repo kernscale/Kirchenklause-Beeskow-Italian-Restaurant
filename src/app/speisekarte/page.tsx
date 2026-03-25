@@ -6,30 +6,55 @@ import { useState } from "react";
 import { FadeIn, TextReveal } from "@/components/ui/animations";
 import { homeContent } from "@/content/home";
 
-const categories = [
-  { key: "all", label: "Alles" },
-  { key: "antipasti", label: "Antipasti" },
-  { key: "pasta", label: "Pasta" },
-  { key: "pizza", label: "Pizza" },
-  { key: "dolci", label: "Dolci" },
-  { key: "drink", label: "Getränke" },
-] as const;
+const categoryLabelMap: Record<string, string> = {
+  suppen: "Suppen",
+  fischgerichte: "Fischgerichte",
+  gefluegelgerichte: "Geflügelgerichte",
+  rind: "Gerichte vom Rind",
+  schwein: "Gerichte vom Schwein",
+  chefempfehlung: "Chefempfehlung",
+  wildgerichte: "Wildgerichte",
+};
 
 const menuImages: Record<string, string> = {
-  "Bruschetta Classica": "/images/menu-bruschetta.jpg",
-  "Insalata Mista": "/images/menu-insalata.jpg",
-  "Spaghetti Carbonara": "/images/menu-carbonara.jpg",
-  "Gnocchi al Pesto": "/images/menu-gnocchi.jpg",
-  "Pizza Margherita": "/images/menu-pizza.jpg",
-  "Pizza Salame": "/images/menu-pizza-salame.jpg",
-  "Tiramisu": "/images/menu-tiramisu.jpg",
-  "Panna Cotta": "/images/menu-panna-cotta.jpg",
-  "Aperol Spritz": "/images/menu-aperol.jpg",
-  "San Pellegrino": "/images/menu-sanpellegrino.jpg",
+  "Klare Fischsuppe": "/images/mudder/IMG_1726.jpg",
+  Soljanka: "/images/mudder/IMG_1738.jpg",
+  "Schlesische Knoblauchsuppe": "/images/mudder/IMG_1798.jpg",
+  Welsfilet: "/images/mudder/IMG_1834.jpg",
+  "Gemischte Fischplatte": "/images/mudder/IMG_1835.jpg",
+  Dorschfilet: "/images/mudder/IMG_1839.jpg",
+  "Forelle, nach Art der Müllerin": "/images/mudder/IMG_1848.jpg",
+  Zanderfilet: "/images/mudder/IMG_1859.jpg",
+  "Putenbruststeak auf orientalische Art": "/images/mudder/IMG_1876.jpg",
+  Rinderroulade: "/images/mudder/IMG_1897.jpg",
+  "Rumpsteak 200 g": "/images/mudder/IMG_1917.jpg",
+  "Mastochsensteak 250 g": "/images/mudder/IMG_1918.jpg",
+  "Steak ou four": "/images/mudder/IMG_1926.jpg",
+  Bauernschmaus: "/images/mudder/IMG_1938.jpg",
+  "3 Schweinemedaillons": "/images/mudder/IMG_1946.jpg",
+  'Steak "Balkan"': "/images/mudder/IMG_1952.jpg",
+  "Eisbein, gepökelt": "/images/mudder/IMG_1953.jpg",
+  Metzgerplatte: "/images/mudder/bild-01.jpg",
+  Kloppschinken: "/images/mudder/bild-02.jpg",
+  'Rippenbraten "Mecklenburger Art"': "/images/mudder/bild-03.jpg",
+  "Känguru Rückensteak": "/images/mudder/bild-04.jpg",
+  Kutscherteller: "/images/mudder/bild-05.jpg",
+  Hirschbraten: "/images/mudder/IMG_1848.jpg",
+  Wildschweinbraten: "/images/mudder/IMG_1952.jpg",
 };
+
+function labelForCategory(category: string): string {
+  return categoryLabelMap[category] ?? category;
+}
 
 export default function SpeisekartePage() {
   const [active, setActive] = useState<string>("all");
+  const availableCategories = Array.from(new Set(homeContent.menu.map((item) => item.category)));
+
+  const categories = [
+    { key: "all", label: "Alles" },
+    ...availableCategories.map((category) => ({ key: category, label: labelForCategory(category) })),
+  ];
 
   const filtered = active === "all" ? homeContent.menu : homeContent.menu.filter((item) => item.category === active);
 
@@ -37,7 +62,7 @@ export default function SpeisekartePage() {
     <main className="pt-32 pb-20">
       <section className="mx-auto mb-20 max-w-7xl px-5 md:px-8">
         <FadeIn>
-          <span className="eyebrow editorial-line text-accent">Kirchenklause Beeskow</span>
+          <span className="eyebrow editorial-line text-accent">Mudder-Schulten-Stuben</span>
         </FadeIn>
         <TextReveal
           text="Speisekarte"
@@ -47,7 +72,7 @@ export default function SpeisekartePage() {
         />
         <FadeIn delay={0.5}>
           <p className="mt-6 max-w-lg text-lg leading-relaxed text-foreground/50">
-            Klassische italienische Küche mit frischen Zutaten und hausgemachten Details.
+            Regionale Spezialitäten mit Fokus auf Fisch-, Fleisch- und Wildgerichte. Preise bitte direkt im Restaurant erfragen.
           </p>
         </FadeIn>
       </section>
@@ -88,7 +113,7 @@ export default function SpeisekartePage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -30 }}
-              transition={{ duration: 0.5, delay: i * 0.06 }}
+              transition={{ duration: 0.5, delay: i * 0.03 }}
             >
               <motion.div
                 className="group relative overflow-hidden rounded-2xl border border-border/70 bg-panel"
@@ -112,12 +137,12 @@ export default function SpeisekartePage() {
                       <h3 className="font-display text-xl text-foreground">{item.name}</h3>
                       <p className="mt-1 text-sm text-foreground/40">{item.description}</p>
                     </div>
-                    <span className="whitespace-nowrap font-display text-xl text-accent">{item.price}</span>
+                    <span className="whitespace-nowrap font-display text-sm text-accent">{item.price}</span>
                   </div>
 
                   <div className="mt-4">
                     <span className="inline-flex rounded-full border border-border/70 bg-panel px-3 py-1 text-xs text-foreground/40">
-                      {categories.find((c) => c.key === item.category)?.label}
+                      {labelForCategory(item.category)}
                     </span>
                   </div>
                 </div>
@@ -132,8 +157,8 @@ export default function SpeisekartePage() {
       <section className="mx-auto mt-24 max-w-7xl px-5 md:px-8">
         <FadeIn>
           <div className="rounded-2xl border border-border/70 bg-panel p-10 text-center md:p-16">
-            <p className="font-display text-2xl text-foreground md:text-3xl">Allergien oder Sonderwünsche?</p>
-            <p className="mt-3 text-foreground/40">Sprich unser Team an - wir beraten dich gerne persönlich.</p>
+            <p className="font-display text-2xl text-foreground md:text-3xl">Reservierung oder Rückfragen?</p>
+            <p className="mt-3 text-foreground/40">Bitte telefonisch unter 0395 5823766 oder per E-Mail an kls.wichmann@t-online.de.</p>
           </div>
         </FadeIn>
       </section>

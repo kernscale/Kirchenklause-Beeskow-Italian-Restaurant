@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 export const metadata: Metadata = {
   title: "Kontakt",
   description:
-    "Kontakt zur Kirchenklause Beeskow Italian Restaurant: Adresse, Öffnungszeiten, Telefon und Nachricht über das Kontaktformular.",
+    "Kontakt zur Mudder-Schulten-Stuben: Vierte Ringstr. 425 in 17033 Neubrandenburg, Telefon 0395 5823766 und E-Mail kls.wichmann@t-online.de.",
   alternates: {
     canonical: "/kontakt",
   },
